@@ -28,36 +28,39 @@ const terserOption = {
     compress: {
         // compress options
         defaults: false,
-        evaluate: true,
+        evaluate: false, // disabled: can turn valid calls into (void 0)()
         dead_code: true,
         // directives: true,
         inline: false,
         join_vars: true,
         loops: true,
-        passes: 4,
+        passes: 2, // reduced from 4: fewer passes = less risk of aggressive rewrites
         reduce_vars: true,
         reduce_funcs: false,
         arrows: true,
-        collapse_vars: true,
+        collapse_vars: false, // disabled: can break function call chains
         comparisons: true,
         //@ts-ignore
         lhs_constants: true,
-        hoist_props: true,
-        side_effects: true,
+        hoist_props: false, // disabled: can break property access on re-hoisted objects
+        side_effects: false, // disabled: can incorrectly remove calls with side effects
         ecma: 2018,
         // hoist_vars: true,
         // hoist_funs: true,
         if_return: true,
         // unsafe_math: true,
-        unused: true,
+        unused: {
+            // keep function args to avoid breaking call sites
+            keep_fargs: true,
+        },
         // --
         typeofs: true,
         properties: true,
         module: true,
         booleans: true,
         conditionals: true,
-        hoist_funs: true,
-        hoist_vars: true,
+        hoist_funs: false, // disabled: can change execution order
+        hoist_vars: false, // disabled: can change execution order
         // toplevel: "vars",
     },
     mangle: false,

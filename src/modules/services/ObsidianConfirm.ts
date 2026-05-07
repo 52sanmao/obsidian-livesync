@@ -52,7 +52,7 @@ export class ObsidianConfirm<T extends ObsidianServiceContext = ObsidianServiceC
         return askSelectString(this._app, $msg(message), items);
     }
 
-    askSelectStringDialogue<T extends readonly string[]>(
+    async askSelectStringDialogue<T extends readonly string[]>(
         message: string,
         buttons: T,
         opt: { title?: string; defaultAction: T[number]; timeout?: number }
