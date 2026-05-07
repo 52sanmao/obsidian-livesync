@@ -636,7 +636,7 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
         if (result == OPTION_FETCH) {
             if (!(await this.checkWorkingPassphrase())) {
                 if (
-                    (await this.core.confirm.askYesNoDialog($msg("obsidianLiveSyncSettingTab.msgAreYouSureProceed"), {
+                    (await this.core.confirm.askYesNoDialog("obsidianLiveSyncSettingTab.msgAreYouSureProceed", {
                         defaultOption: "No",
                     })) != "yes"
                 )

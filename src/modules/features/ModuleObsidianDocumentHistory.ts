@@ -5,12 +5,13 @@ import type { FilePathWithPrefix, LoadedEntry, DocumentID } from "../../lib/src/
 import { AbstractObsidianModule } from "../AbstractObsidianModule.ts";
 import { DocumentHistoryModal } from "./DocumentHistory/DocumentHistoryModal.ts";
 import { fireAndForget } from "octagonal-wheels/promises";
+import { $msg } from "../../lib/src/common/i18n.ts";
 
 export class ModuleObsidianDocumentHistory extends AbstractObsidianModule {
     _everyOnloadStart(): Promise<boolean> {
         this.addCommand({
             id: "livesync-history",
-            name: "Show history",
+            name: $msg("Show history"),
             callback: () => {
                 const file = this.services.vault.getActiveFilePath();
                 if (file) this.showHistory(file, undefined);
@@ -19,7 +20,7 @@ export class ModuleObsidianDocumentHistory extends AbstractObsidianModule {
 
         this.addCommand({
             id: "livesync-filehistory",
-            name: "Pick a file to show history",
+            name: $msg("Pick a file to show history"),
             callback: () => {
                 fireAndForget(async () => await this.fileHistory());
             },

@@ -25,12 +25,12 @@ export const enableI18nFeature = createServiceFeature(async ({ services: { setti
         }
     }
     if (isChanged) {
-        const revert = $msg("dialog.yourLanguageAvailable.btnRevertToDefault");
+        const REVERT = "dialog.yourLanguageAvailable.btnRevertToDefault";
         if (
-            (await API.confirm.askSelectStringDialogue($msg(`dialog.yourLanguageAvailable`), ["OK", revert], {
+            (await API.confirm.askSelectStringDialogue("dialog.yourLanguageAvailable", ["OK", REVERT], {
                 defaultAction: "OK",
-                title: $msg(`dialog.yourLanguageAvailable.Title`),
-            })) == revert
+                title: "dialog.yourLanguageAvailable.Title",
+            })) == REVERT
         ) {
             await setting.applyPartial({ displayLanguage: "def" });
             setLang(settings.displayLanguage);

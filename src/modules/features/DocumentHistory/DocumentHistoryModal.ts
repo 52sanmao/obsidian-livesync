@@ -16,6 +16,7 @@ import { fireAndForget, getDocData, readContent } from "../../../lib/src/common/
 import { isPlainText, stripPrefix } from "../../../lib/src/string_and_binary/path.ts";
 import { scheduleOnceIfDuplicated } from "octagonal-wheels/concurrency/lock";
 import type { LiveSyncBaseCore } from "@/LiveSyncBaseCore.ts";
+import { $msg } from "../../../lib/src/common/i18n.ts";
 
 function isImage(path: string) {
     const ext = path.split(".").splice(-1)[0].toLowerCase();
@@ -220,7 +221,7 @@ export class DocumentHistoryModal extends Modal {
 
     override onOpen() {
         const { contentEl } = this;
-        this.titleEl.setText("Document History");
+        this.titleEl.setText($msg("Document History"));
         contentEl.empty();
         this.fileInfo = contentEl.createDiv("");
         this.fileInfo.addClass("op-info");
@@ -251,7 +252,7 @@ export class DocumentHistoryModal extends Modal {
                             });
                         })
                     );
-                    label.appendText("Highlight diff");
+                    label.appendText($msg("Highlight diff"));
                 });
             })
             .addClass("op-info");

@@ -15,19 +15,20 @@ import { displayRev } from "../../common/utils.ts";
 import { fireAndForget } from "octagonal-wheels/promises";
 import { serialized } from "octagonal-wheels/concurrency/lock";
 import type { LiveSyncCore } from "../../main.ts";
+import { $msg } from "../../lib/src/common/i18n.ts";
 
 export class ModuleInteractiveConflictResolver extends AbstractObsidianModule {
     _everyOnloadStart(): Promise<boolean> {
         this.addCommand({
             id: "livesync-conflictcheck",
-            name: "Pick a file to resolve conflict",
+            name: $msg("Pick a file to resolve conflict"),
             callback: async () => {
                 await this.pickFileForResolve();
             },
         });
         this.addCommand({
             id: "livesync-all-conflictcheck",
-            name: "Resolve all conflicted files",
+            name: $msg("Resolve all conflicted files"),
             callback: async () => {
                 await this.allConflictCheck();
             },
