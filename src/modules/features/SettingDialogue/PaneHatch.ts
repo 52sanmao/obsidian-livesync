@@ -42,10 +42,10 @@ import type { PageFunctions } from "./SettingPane.ts";
 export function paneHatch(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement, { addPanel }: PageFunctions): void {
     // const hatchWarn = this.createEl(paneEl, "div", { text: `To stop the boot up sequence for fixing problems on databases, you can put redflag.md on top of your vault (Rebooting obsidian is required).` });
     // hatchWarn.addClass("op-warn-info");
-    void addPanel(paneEl, $msg("Setting.TroubleShooting")).then((paneEl) => {
+    void addPanel(paneEl, "Setting.TroubleShooting").then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("Setting.TroubleShooting.Doctor"))
-            .setDesc($msg("Setting.TroubleShooting.Doctor.Desc"))
+            .setName("Setting.TroubleShooting.Doctor")
+            .setDesc("Setting.TroubleShooting.Doctor.Desc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Run Doctor"))
@@ -57,8 +57,8 @@ export function paneHatch(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement,
                     })
             );
         new Setting(paneEl)
-            .setName($msg("Setting.TroubleShooting.ScanBrokenFiles"))
-            .setDesc($msg("Setting.TroubleShooting.ScanBrokenFiles.Desc"))
+            .setName("Setting.TroubleShooting.ScanBrokenFiles")
+            .setDesc("Setting.TroubleShooting.ScanBrokenFiles.Desc")
             .addButton((button) =>
                 button
                     .setButtonText("Scan for Broken files")
@@ -69,7 +69,7 @@ export function paneHatch(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement,
                         eventHub.emitEvent(EVENT_REQUEST_RUN_FIX_INCOMPLETE);
                     })
             );
-        new Setting(paneEl).setName($msg("Prepare the 'report' to create an issue")).addButton((button) =>
+        new Setting(paneEl).setName("Prepare the 'report' to create an issue").addButton((button) =>
             button
                 .setButtonText($msg("Copy Report to clipboard"))
                 .setCta()
@@ -206,11 +206,9 @@ ${stringifyYaml({
                 })
         );
         new Setting(paneEl)
-            .setName($msg("Analyse database usage"))
+            .setName("Analyse database usage")
             .setDesc(
-                $msg(
-                    "Analyse database usage and generate a TSV report for diagnosis yourself. You can paste the generated report with any spreadsheet you like."
-                )
+                "Analyse database usage and generate a TSV report for diagnosis yourself. You can paste the generated report with any spreadsheet you like."
             )
             .addButton((button) =>
                 button.setButtonText($msg("Analyse")).onClick(() => {
@@ -218,8 +216,8 @@ ${stringifyYaml({
                 })
             );
         new Setting(paneEl)
-            .setName($msg("Reset notification threshold and check the remote database usage"))
-            .setDesc($msg("Reset the remote storage size threshold and check the remote storage size again."))
+            .setName("Reset notification threshold and check the remote database usage")
+            .setDesc("Reset the remote storage size threshold and check the remote storage size again.")
             .addButton((button) =>
                 button.setButtonText($msg("Check")).onClick(() => {
                     eventHub.emitEvent(EVENT_REQUEST_CHECK_REMOTE_SIZE);

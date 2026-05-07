@@ -63,7 +63,8 @@ export class LiveSyncSetting extends Setting {
         DEV: {
             this._createDocStub("desc", desc);
         }
-        super.setDesc(desc);
+        const translated = typeof desc === "string" ? $msg(desc) : desc;
+        super.setDesc(translated);
         return this;
     }
     override setName(name: string | DocumentFragment): this {
@@ -71,7 +72,8 @@ export class LiveSyncSetting extends Setting {
         DEV: {
             this._createDocStub("name", name);
         }
-        super.setName(name);
+        const translated = typeof name === "string" ? $msg(name) : name;
+        super.setName(translated);
         return this;
     }
     setAuto(key: AllSettingItemKey, opt?: AutoWireOption) {

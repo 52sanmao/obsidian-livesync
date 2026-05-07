@@ -636,7 +636,7 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
         if (result == OPTION_FETCH) {
             if (!(await this.checkWorkingPassphrase())) {
                 if (
-                    (await this.core.confirm.askYesNoDialog($msg("obsidianLiveSyncSettingTab.msgAreYouSureProceed"), {
+                    (await this.core.confirm.askYesNoDialog("obsidianLiveSyncSettingTab.msgAreYouSureProceed", {
                         defaultOption: "No",
                     })) != "yes"
                 )
@@ -726,9 +726,10 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
             wizardHidden: boolean,
             level?: ConfigLevel
         ) => {
+            const localizedTitle = $msg(title);
             const el = this.createEl(parentEl, "div", { text: "" });
             DEV: {
-                const mdTitle = `${paneNo++}. ${title}${getLevelStr(level ?? "")}`;
+                const mdTitle = `${paneNo++}. ${localizedTitle}${getLevelStr(level ?? "")}`;
                 el.setAttribute("data-pane", mdTitle);
                 toc.add(
                     `| ${icon} | [${mdTitle}](#${mdTitle
@@ -738,7 +739,7 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
                 );
             }
             setLevelClass(el, level);
-            el.createEl("h3", { text: title, cls: "sls-setting-pane-title" });
+            el.createEl("h3", { text: localizedTitle, cls: "sls-setting-pane-title" });
             if (this.menuEl) {
                 this.menuEl.createEl(
                     "label",
@@ -754,7 +755,7 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
                         el.createEl("div", {
                             cls: "sls-setting-menu-btn",
                             text: icon,
-                            title: title,
+                            title: localizedTitle,
                         });
                         inputEl.addEventListener("change", (evt) => this.selectPane(evt));
                         inputEl.addEventListener("click", (evt) => this.selectPane(evt));
@@ -763,10 +764,6 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
             }
             this.addScreenElement(`${order}`, el);
             const p = Promise.resolve(el);
-            // fireAndForget
-            // p.finally(() => {
-            //     // Recap at the end.
-            // });
             return p;
         };
         const panelNoMap = {} as { [key: string]: number };
@@ -777,6 +774,7 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
             func?: OnUpdateFunc,
             level?: ConfigLevel
         ) => {
+            const localizedTitle = $msg(title);
             const el = this.createEl(parentEl, "div", { text: "" }, callback, func);
             DEV: {
                 const paneNo = findAttrFromParent(parentEl, "data-pane");
@@ -785,14 +783,11 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
                 }
                 panelNoMap[paneNo] += 1;
                 const panelNo = panelNoMap[paneNo];
-                el.setAttribute("data-panel", `${panelNo}. ${title}${getLevelStr(level ?? "")}`);
+                el.setAttribute("data-panel", `${panelNo}. ${localizedTitle}${getLevelStr(level ?? "")}`);
             }
             setLevelClass(el, level);
-            this.createEl(el, "h4", { text: title, cls: "sls-setting-panel-title" });
+            this.createEl(el, "h4", { text: localizedTitle, cls: "sls-setting-panel-title" });
             const p = Promise.resolve(el);
-            // p.finally(() => {
-            //     // Recap at the end.
-            // })
             return p;
         };
 
@@ -820,19 +815,19 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
             return callback;
         };
 
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.panelChangeLog"), "💬", 100, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.panelChangeLog", "💬", 100, false).then(
             bindPane(paneChangeLog)
         );
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.panelSetup"), "🧙‍♂️", 110, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.panelSetup", "🧙‍♂️", 110, false).then(
             bindPane(paneSetup)
         );
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.panelGeneralSettings"), "⚙️", 20, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.panelGeneralSettings", "⚙️", 20, false).then(
             bindPane(paneGeneral)
         );
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.panelRemoteConfiguration"), "🛰️", 0, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.panelRemoteConfiguration", "🛰️", 0, false).then(
             bindPane(paneRemoteConfig)
         );
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.titleSyncSettings"), "🔄", 30, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.titleSyncSettings", "🔄", 30, false).then(
             bindPane(paneSyncSettings)
         );
         void addPane(containerEl, "Selector", "🚦", 33, false, LEVEL_ADVANCED).then(bindPane(paneSelector));

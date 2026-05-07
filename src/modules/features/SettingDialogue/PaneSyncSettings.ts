@@ -21,7 +21,7 @@ export function paneSyncSettings(
         cls: "wizardOnly",
     }).addClasses(["op-warn-info"]);
 
-    void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleSynchronizationPreset")).then((paneEl) => {
+    void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleSynchronizationPreset").then((paneEl) => {
         const options: Record<string, string> =
             this.editingSettings.remoteType == REMOTE_COUCHDB
                 ? {
@@ -134,7 +134,7 @@ export function paneSyncSettings(
             }
         });
     });
-    void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleSynchronizationMethod")).then((paneEl) => {
+    void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleSynchronizationMethod").then((paneEl) => {
         paneEl.addClass("wizardHidden");
 
         // const onlyOnLiveSync = visibleOnly(() => this.isConfiguredAs("syncMode", "LIVESYNC"));
@@ -193,7 +193,7 @@ export function paneSyncSettings(
 
     void addPanel(
         paneEl,
-        $msg("obsidianLiveSyncSettingTab.titleUpdateThinning"),
+        "obsidianLiveSyncSettingTab.titleUpdateThinning",
         undefined,
         visibleOnly(() => !this.isConfiguredAs("syncMode", "LIVESYNC"))
     ).then((paneEl) => {
@@ -211,7 +211,7 @@ export function paneSyncSettings(
 
     void addPanel(
         paneEl,
-        $msg("obsidianLiveSyncSettingTab.titleDeletionPropagation"),
+        "obsidianLiveSyncSettingTab.titleDeletionPropagation",
         undefined,
         undefined,
         LEVEL_ADVANCED
@@ -223,7 +223,7 @@ export function paneSyncSettings(
     });
     void addPanel(
         paneEl,
-        $msg("obsidianLiveSyncSettingTab.titleConflictResolution"),
+        "obsidianLiveSyncSettingTab.titleConflictResolution",
         undefined,
         undefined,
         LEVEL_ADVANCED
@@ -239,7 +239,7 @@ export function paneSyncSettings(
 
     void addPanel(
         paneEl,
-        $msg("obsidianLiveSyncSettingTab.titleSyncSettingsViaMarkdown"),
+        "obsidianLiveSyncSettingTab.titleSyncSettingsViaMarkdown",
         undefined,
         undefined,
         LEVEL_ADVANCED
@@ -254,7 +254,7 @@ export function paneSyncSettings(
 
     void addPanel(
         paneEl,
-        $msg("obsidianLiveSyncSettingTab.titleHiddenFiles"),
+        "obsidianLiveSyncSettingTab.titleHiddenFiles",
         undefined,
         undefined,
         LEVEL_ADVANCED
@@ -265,14 +265,14 @@ export function paneSyncSettings(
         const LABEL_DISABLED = $msg("obsidianLiveSyncSettingTab.labelDisabled");
 
         const hiddenFileSyncSetting = new Setting(paneEl)
-            .setName($msg("obsidianLiveSyncSettingTab.nameHiddenFileSynchronization"))
+            .setName("obsidianLiveSyncSettingTab.nameHiddenFileSynchronization")
             .setClass("wizardHidden");
         const hiddenFileSyncSettingEl = hiddenFileSyncSetting.settingEl;
         const hiddenFileSyncSettingDiv = hiddenFileSyncSettingEl.createDiv("");
         hiddenFileSyncSettingDiv.innerText = this.editingSettings.syncInternalFiles ? LABEL_ENABLED : LABEL_DISABLED;
         if (this.editingSettings.syncInternalFiles) {
             new Setting(paneEl)
-                .setName($msg("obsidianLiveSyncSettingTab.nameDisableHiddenFileSync"))
+                .setName("obsidianLiveSyncSettingTab.nameDisableHiddenFileSync")
                 .setClass("wizardHidden")
                 .addButton((button) => {
                     button.setButtonText($msg("obsidianLiveSyncSettingTab.btnDisable")).onClick(async () => {
@@ -283,7 +283,7 @@ export function paneSyncSettings(
                 });
         } else {
             new Setting(paneEl)
-                .setName($msg("obsidianLiveSyncSettingTab.nameEnableHiddenFileSync"))
+                .setName("obsidianLiveSyncSettingTab.nameEnableHiddenFileSync")
                 .setClass("wizardHidden")
                 .addButton((button) => {
                     button.setButtonText("Merge").onClick(async () => {
