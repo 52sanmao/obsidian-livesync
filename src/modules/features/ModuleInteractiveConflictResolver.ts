@@ -125,7 +125,7 @@ export class ModuleInteractiveConflictResolver extends AbstractObsidianModule {
             this._log("There are no conflicted documents", LOG_LEVEL_NOTICE);
             return false;
         }
-        const target = await this.core.confirm.askSelectString("File to resolve conflict", notesList);
+        const target = await this.core.confirm.askSelectString($msg("Ui.ConflictResolver.FileToResolve"), notesList);
         if (target) {
             const targetItem = notes.find((e) => e.dispPath == target)!;
             await this.services.conflict.queueCheckFor(targetItem.path);

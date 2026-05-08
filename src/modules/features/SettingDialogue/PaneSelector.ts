@@ -52,7 +52,7 @@ export function paneSelector(this: ObsidianLiveSyncSettingTab, paneEl: HTMLEleme
             onUpdate: visibleOnly(() => this.isConfiguredAs("useIgnoreFiles", true)),
         });
     });
-    void addPanel(paneEl, $msg("Ui.Settings.Selector.HiddenFiles"), undefined, undefined, LEVEL_ADVANCED).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Selector.HiddenFiles", undefined, undefined, LEVEL_ADVANCED).then((paneEl) => {
         const targetPatternSetting = new Setting(paneEl)
             .setName("Ui.Settings.Selector.TargetPatterns")
             .setClass("wizardHidden")

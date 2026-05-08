@@ -93,6 +93,6 @@
 <InfoNote warning message="Setup.RemoteE2EE.ManualWarning" />
 
 <UserDecisions>
-    <Decision title="Setup.RemoteE2EE.ButtonProceed" important disabled={!e2eeValid} commit={() => commit()} />
+    <Decision title="Setup.UseSetupURI.ButtonProceed" important disabled={!e2eeValid} commit={() => commit()} />
     <Decision title="Setup.UseSetupURI.ButtonCancel" commit={() => setResult(TYPE_CANCELLED)} />
 </UserDecisions>

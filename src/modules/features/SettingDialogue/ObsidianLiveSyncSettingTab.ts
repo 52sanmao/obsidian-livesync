@@ -822,19 +822,19 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
             return callback;
         };
 
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.panelChangeLog"), "💬", 100, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.panelChangeLog", "💬", 100, false).then(
             bindPane(paneChangeLog)
         );
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.panelSetup"), "🧙‍♂️", 110, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.panelSetup", "🧙‍♂️", 110, false).then(
             bindPane(paneSetup)
         );
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.panelGeneralSettings"), "⚙️", 20, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.panelGeneralSettings", "⚙️", 20, false).then(
             bindPane(paneGeneral)
         );
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.panelRemoteConfiguration"), "🛰️", 0, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.panelRemoteConfiguration", "🛰️", 0, false).then(
             bindPane(paneRemoteConfig)
         );
-        void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.titleSyncSettings"), "🔄", 30, false).then(
+        void addPane(containerEl, "obsidianLiveSyncSettingTab.titleSyncSettings", "🔄", 30, false).then(
             bindPane(paneSyncSettings)
         );
         void addPane(containerEl, "Selector", "🚦", 33, false, LEVEL_ADVANCED).then(bindPane(paneSelector));

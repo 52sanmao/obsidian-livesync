@@ -46,7 +46,7 @@ export class ModuleObsidianDocumentHistory extends AbstractObsidianModule {
         }
         notes.sort((a, b) => b.mtime - a.mtime);
         const notesList = notes.map((e) => e.dispPath);
-        const target = await this.core.confirm.askSelectString("File to view History", notesList);
+        const target = await this.core.confirm.askSelectString($msg("Ui.History.FileToView"), notesList);
         if (target) {
             const targetId = notes.find((e) => e.dispPath == target)!;
             this.showHistory(targetId.path, targetId.id);

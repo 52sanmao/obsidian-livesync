@@ -129,7 +129,7 @@ export function paneMaintenance(
             );
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Maintenance.Syncing"), () => {}, this.onlyOnCouchDBOrMinIO).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Maintenance.Syncing", () => {}, this.onlyOnCouchDBOrMinIO).then((paneEl) => {
         new Setting(paneEl)
             .setName("Ui.Settings.Maintenance.Resend")
             .setDesc("Ui.Settings.Maintenance.ResendDesc")

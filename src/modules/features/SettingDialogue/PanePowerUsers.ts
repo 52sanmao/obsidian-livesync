@@ -9,7 +9,7 @@ export function panePowerUsers(
     paneEl: HTMLElement,
     { addPanel }: PageFunctions
 ): void {
-    void addPanel(paneEl, $msg("Ui.Settings.PowerUsers.ConnectionTweak"), undefined, this.onlyOnCouchDB).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.PowerUsers.ConnectionTweak", undefined, this.onlyOnCouchDB).then((paneEl) => {
         paneEl.addClass("wizardHidden");
 
         this.createEl(

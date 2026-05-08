@@ -113,7 +113,7 @@ export function paneRemoteConfig(
                 info: getE2EEConfigSummary(this.editingSettings),
             });
         };
-        void addPanel(paneEl, $msg("Ui.Settings.Remote.E2EEConfiguration"), () => {}).then((paneEl) => {
+        void addPanel(paneEl, "Ui.Settings.Remote.E2EEConfiguration", () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, E2EESummaryWritable);
             const setupButton = new Setting(paneEl).setName("Ui.Settings.Remote.ConfigureE2EE");
             setupButton
@@ -144,7 +144,7 @@ export function paneRemoteConfig(
     }
     {
         // TODO: very WIP. need to refactor the UI.
-        void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleRemoteServer"), () => {}).then((paneEl) => {
+        void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleRemoteServer", () => {}).then((paneEl) => {
             const actions = new Setting(paneEl).setName("Ui.Settings.Remote.RemoteDatabases");
             // actions.addButton((button) =>
             //     button
@@ -537,7 +537,7 @@ export function paneRemoteConfig(
                 info: getCouchDBConfigSummary(this.editingSettings),
             });
         };
-        void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleCouchDB"), () => {}).then((paneEl) => {
+        void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleCouchDB", () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, summaryWritable);
             const setupButton = new Setting(paneEl).setName("Ui.Settings.Remote.ConfigureRemote");
             setupButton
@@ -573,7 +573,7 @@ export function paneRemoteConfig(
                 info: getBucketConfigSummary(this.editingSettings),
             });
         };
-        void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleMinioS3R2"), () => {}).then((paneEl) => {
+        void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleMinioS3R2", () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, summaryWritable);
             const setupButton = new Setting(paneEl).setName("Ui.Settings.Remote.ConfigureRemote");
             setupButton
@@ -614,7 +614,7 @@ export function paneRemoteConfig(
                 }),
             });
         };
-        void addPanel(paneEl, $msg("Ui.Settings.Remote.PeerToPeerPanel"), () => {}).then((paneEl) => {
+        void addPanel(paneEl, "Ui.Settings.Remote.PeerToPeerPanel", () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, summaryWritable);
             const setupButton = new Setting(paneEl).setName("Ui.Settings.Remote.ConfigureRemote");
             setupButton
@@ -681,7 +681,7 @@ export function paneRemoteConfig(
     //         )
     //     );
 
-    void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleNotification"), () => {}).then((paneEl) => {
+    void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleNotification", () => {}).then((paneEl) => {
         paneEl.addClass("wizardHidden");
         new Setting(paneEl).autoWireNumeric("notifyThresholdOfRemoteStorageSize", {}).setClass("wizardHidden");
     });
