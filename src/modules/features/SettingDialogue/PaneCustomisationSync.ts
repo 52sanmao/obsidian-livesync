@@ -11,7 +11,7 @@ export function paneCustomisationSync(
 ): void {
     // With great respect, thank you TfTHacker!
     // Refer: https://github.com/TfTHacker/obsidian42-brat/blob/main/src/features/BetaPlugins.ts
-    void addPanel(paneEl, $msg("Ui.Settings.CustomizationSync.Panel")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.CustomizationSync.Panel").then((paneEl) => {
         const enableOnlyOnPluginSyncIsNotEnabled = enableOnly(() => this.isConfiguredAs("usePluginSync", false));
         const visibleOnlyOnPluginSyncEnabled = visibleOnly(() => this.isConfiguredAs("usePluginSync", true));
 
@@ -59,8 +59,8 @@ export function paneCustomisationSync(
         });
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Common.Open"))
-            .setDesc($msg("Ui.Settings.CustomizationSync.OpenDesc"))
+            .setName("Ui.Settings.Common.Open")
+            .setDesc("Ui.Settings.CustomizationSync.OpenDesc")
             .addButton((button) => {
                 button
                     .setButtonText($msg("Ui.Settings.Common.Open"))

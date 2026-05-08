@@ -42,10 +42,10 @@ import type { PageFunctions } from "./SettingPane.ts";
 export function paneHatch(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement, { addPanel }: PageFunctions): void {
     // const hatchWarn = this.createEl(paneEl, "div", { text: `To stop the boot up sequence for fixing problems on databases, you can put redflag.md on top of your vault (Rebooting obsidian is required).` });
     // hatchWarn.addClass("op-warn-info");
-    void addPanel(paneEl, $msg("Setting.TroubleShooting")).then((paneEl) => {
+    void addPanel(paneEl, "Setting.TroubleShooting").then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("Setting.TroubleShooting.Doctor"))
-            .setDesc($msg("Setting.TroubleShooting.Doctor.Desc"))
+            .setName("Setting.TroubleShooting.Doctor")
+            .setDesc("Setting.TroubleShooting.Doctor.Desc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Hatch.RunDoctor"))
@@ -57,8 +57,8 @@ export function paneHatch(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement,
                     })
             );
         new Setting(paneEl)
-            .setName($msg("Setting.TroubleShooting.ScanBrokenFiles"))
-            .setDesc($msg("Setting.TroubleShooting.ScanBrokenFiles.Desc"))
+            .setName("Setting.TroubleShooting.ScanBrokenFiles")
+            .setDesc("Setting.TroubleShooting.ScanBrokenFiles.Desc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Hatch.ScanBrokenFiles"))
@@ -69,7 +69,7 @@ export function paneHatch(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement,
                         eventHub.emitEvent(EVENT_REQUEST_RUN_FIX_INCOMPLETE);
                     })
             );
-        new Setting(paneEl).setName($msg("Ui.Settings.Hatch.PrepareIssueReport")).addButton((button) =>
+        new Setting(paneEl).setName("Ui.Settings.Hatch.PrepareIssueReport").addButton((button) =>
             button
                 .setButtonText($msg("Ui.Settings.Hatch.CopyIssueReport"))
                 .setCta()
@@ -189,16 +189,16 @@ ${stringifyYaml({
                 })
         );
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Hatch.AnalyseDatabaseUsage"))
-            .setDesc($msg("Ui.Settings.Hatch.AnalyseDatabaseUsageDesc"))
+            .setName("Ui.Settings.Hatch.AnalyseDatabaseUsage")
+            .setDesc("Ui.Settings.Hatch.AnalyseDatabaseUsageDesc")
             .addButton((button) =>
                 button.setButtonText($msg("Ui.Settings.Common.Analyse")).onClick(() => {
                     eventHub.emitEvent(EVENT_ANALYSE_DB_USAGE);
                 })
             );
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Hatch.ResetRemoteUsage"))
-            .setDesc($msg("Ui.Settings.Hatch.ResetRemoteUsageDesc"))
+            .setName("Ui.Settings.Hatch.ResetRemoteUsage")
+            .setDesc("Ui.Settings.Hatch.ResetRemoteUsageDesc")
             .addButton((button) =>
                 button.setButtonText($msg("Ui.Settings.Common.Check")).onClick(() => {
                     eventHub.emitEvent(EVENT_REQUEST_CHECK_REMOTE_SIZE);
@@ -207,7 +207,7 @@ ${stringifyYaml({
         new Setting(paneEl).autoWireToggle("writeLogToTheFile");
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Hatch.ScramSwitches")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Hatch.ScramSwitches").then((paneEl) => {
         new Setting(paneEl).autoWireToggle("suspendFileWatching");
         this.addOnSaved("suspendFileWatching", () => this.services.appLifecycle.askRestart());
 
@@ -215,7 +215,7 @@ ${stringifyYaml({
         this.addOnSaved("suspendParseReplicationResult", () => this.services.appLifecycle.askRestart());
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Hatch.RecoveryAndRepair")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Hatch.RecoveryAndRepair").then((paneEl) => {
         const missingText = $msg("Ui.Settings.Hatch.Missing");
         const formatStorageDetails = (mtime: number, size: number) =>
             $msg("Ui.Settings.Hatch.ModifiedSize", {
@@ -371,8 +371,8 @@ ${stringifyYaml({
             }
         };
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Hatch.RecreateMissingChunks"))
-            .setDesc($msg("Ui.Settings.Hatch.RecreateMissingChunksDesc"))
+            .setName("Ui.Settings.Hatch.RecreateMissingChunks")
+            .setDesc("Ui.Settings.Hatch.RecreateMissingChunksDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Hatch.RecreateAll"))
@@ -382,8 +382,8 @@ ${stringifyYaml({
                     })
             );
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Hatch.ResolveAllConflictedFiles"))
-            .setDesc($msg("Ui.Settings.Hatch.ResolveAllConflictedFilesDesc"))
+            .setName("Ui.Settings.Hatch.ResolveAllConflictedFiles")
+            .setDesc("Ui.Settings.Hatch.ResolveAllConflictedFilesDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.ResolveAll"))
@@ -394,8 +394,8 @@ ${stringifyYaml({
             );
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Hatch.VerifyAndRepairAllFiles"))
-            .setDesc($msg("Ui.Settings.Hatch.VerifyAndRepairAllFilesDesc"))
+            .setName("Ui.Settings.Hatch.VerifyAndRepairAllFiles")
+            .setDesc("Ui.Settings.Hatch.VerifyAndRepairAllFilesDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.VerifyAll"))
@@ -484,8 +484,8 @@ ${stringifyYaml({
             );
         const resultArea = paneEl.createDiv({ text: "" });
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Hatch.ConvertNonObfuscated"))
-            .setDesc($msg("Ui.Settings.Hatch.ConvertNonObfuscatedDesc"))
+            .setName("Ui.Settings.Hatch.ConvertNonObfuscated")
+            .setDesc("Ui.Settings.Hatch.ConvertNonObfuscatedDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.Perform"))
@@ -562,8 +562,8 @@ ${stringifyYaml({
                     })
             );
     });
-    void addPanel(paneEl, $msg("Ui.Settings.Hatch.ResetPanel")).then((paneEl) => {
-        new Setting(paneEl).setName($msg("Ui.Settings.Hatch.BackToNonConfigured")).addButton((button) =>
+    void addPanel(paneEl, "Ui.Settings.Hatch.ResetPanel").then((paneEl) => {
+        new Setting(paneEl).setName("Ui.Settings.Hatch.BackToNonConfigured").addButton((button) =>
             button
                 .setButtonText($msg("Ui.Settings.Common.Back"))
                 .setDisabled(false)
@@ -574,7 +574,7 @@ ${stringifyYaml({
                 })
         );
 
-        new Setting(paneEl).setName($msg("Ui.Settings.Hatch.DeleteCustomizationSyncData")).addButton((button) =>
+        new Setting(paneEl).setName("Ui.Settings.Hatch.DeleteCustomizationSyncData").addButton((button) =>
             button
                 .setButtonText($msg("Ui.Settings.Common.Delete"))
                 .setDisabled(false)

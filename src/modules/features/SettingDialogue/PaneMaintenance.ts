@@ -70,10 +70,10 @@ export function paneMaintenance(
         visibleOnly(isRemoteLocked)
     );
 
-    void addPanel(paneEl, $msg("Ui.Settings.Maintenance.Scram")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Maintenance.Scram").then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.LockServer"))
-            .setDesc($msg("Ui.Settings.Maintenance.LockServerDesc"))
+            .setName("Ui.Settings.Maintenance.LockServer")
+            .setDesc("Ui.Settings.Maintenance.LockServerDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.Lock"))
@@ -86,8 +86,8 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnCouchDBOrMinIO);
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.EmergencyRestart"))
-            .setDesc($msg("Ui.Settings.Maintenance.EmergencyRestartDesc"))
+            .setName("Ui.Settings.Maintenance.EmergencyRestart")
+            .setDesc("Ui.Settings.Maintenance.EmergencyRestartDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Maintenance.WriteRedFlagAndRestart"))
@@ -100,10 +100,10 @@ export function paneMaintenance(
             );
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Maintenance.ResetLocalSyncInfo")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Maintenance.ResetLocalSyncInfo").then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.ResetThisDevice"))
-            .setDesc($msg("Ui.Settings.Maintenance.ResetLocalSyncInfoDesc"))
+            .setName("Ui.Settings.Maintenance.ResetThisDevice")
+            .setDesc("Ui.Settings.Maintenance.ResetLocalSyncInfoDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Maintenance.ScheduleAndRestart"))
@@ -115,8 +115,8 @@ export function paneMaintenance(
                     })
             );
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.OverwriteServerData"))
-            .setDesc($msg("Ui.Settings.Maintenance.OverwriteServerDataDesc"))
+            .setName("Ui.Settings.Maintenance.OverwriteServerData")
+            .setDesc("Ui.Settings.Maintenance.OverwriteServerDataDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Maintenance.ScheduleAndRestart"))
@@ -131,8 +131,8 @@ export function paneMaintenance(
 
     void addPanel(paneEl, $msg("Ui.Settings.Maintenance.Syncing"), () => {}, this.onlyOnCouchDBOrMinIO).then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.Resend"))
-            .setDesc($msg("Ui.Settings.Maintenance.ResendDesc"))
+            .setName("Ui.Settings.Maintenance.Resend")
+            .setDesc("Ui.Settings.Maintenance.ResendDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Maintenance.SendChunks"))
@@ -147,8 +147,8 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnCouchDB);
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.ResetJournalReceived"))
-            .setDesc($msg("Ui.Settings.Maintenance.ResetJournalReceivedDesc"))
+            .setName("Ui.Settings.Maintenance.ResetJournalReceived")
+            .setDesc("Ui.Settings.Maintenance.ResetJournalReceivedDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Maintenance.ResetReceived"))
@@ -166,8 +166,8 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnMinIO);
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.ResetJournalSent"))
-            .setDesc($msg("Ui.Settings.Maintenance.ResetJournalSentDesc"))
+            .setName("Ui.Settings.Maintenance.ResetJournalSent")
+            .setDesc("Ui.Settings.Maintenance.ResetJournalSentDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Maintenance.ResetSentHistory"))
@@ -192,8 +192,8 @@ export function paneMaintenance(
         this.onlyOnP2POrCouchDB
     ).then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.GarbageCollectionAction"))
-            .setDesc($msg("Ui.Settings.Maintenance.GarbageCollectionDesc"))
+            .setName("Ui.Settings.Maintenance.GarbageCollectionAction")
+            .setDesc("Ui.Settings.Maintenance.GarbageCollectionDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Maintenance.GarbageCollectionAction"))
@@ -298,8 +298,8 @@ export function paneMaintenance(
         this.onlyOnCouchDBOrMinIO
     ).then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.Cleanup"))
-            .setDesc($msg("Ui.Settings.Maintenance.CleanupDesc"))
+            .setName("Ui.Settings.Maintenance.Cleanup")
+            .setDesc("Ui.Settings.Maintenance.CleanupDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.Perform"))
@@ -317,8 +317,8 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnCouchDB);
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.OverwriteRemote"))
-            .setDesc($msg("Ui.Settings.Maintenance.OverwriteRemoteDesc"))
+            .setName("Ui.Settings.Maintenance.OverwriteRemote")
+            .setDesc("Ui.Settings.Maintenance.OverwriteRemoteDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.Send"))
@@ -330,8 +330,8 @@ export function paneMaintenance(
             );
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.ResetAllJournalCounter"))
-            .setDesc($msg("Ui.Settings.Maintenance.ResetAllJournalCounterDesc"))
+            .setName("Ui.Settings.Maintenance.ResetAllJournalCounter")
+            .setDesc("Ui.Settings.Maintenance.ResetAllJournalCounterDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.ResetAll"))
@@ -345,8 +345,8 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnMinIO);
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.PurgeAllJournalCounter"))
-            .setDesc($msg("Ui.Settings.Maintenance.PurgeAllJournalCounterDesc"))
+            .setName("Ui.Settings.Maintenance.PurgeAllJournalCounter")
+            .setDesc("Ui.Settings.Maintenance.PurgeAllJournalCounterDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.ResetAll"))
@@ -360,8 +360,8 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnMinIO);
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.FreshStartWipe"))
-            .setDesc($msg("Ui.Settings.Maintenance.FreshStartWipeDesc"))
+            .setName("Ui.Settings.Maintenance.FreshStartWipe")
+            .setDesc("Ui.Settings.Maintenance.FreshStartWipeDesc")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.Delete"))
@@ -383,9 +383,9 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnMinIO);
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Maintenance.Reset")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Maintenance.Reset").then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Maintenance.DeleteLocalDatabase"))
+            .setName("Ui.Settings.Maintenance.DeleteLocalDatabase")
             .addButton((button) =>
                 button
                     .setButtonText($msg("Ui.Settings.Common.Delete"))

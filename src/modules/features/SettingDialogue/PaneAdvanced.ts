@@ -1,15 +1,14 @@
-import { $msg } from "../../../lib/src/common/i18n.ts";
 import { ChunkAlgorithmNames } from "../../../lib/src/common/types.ts";
 import { LiveSyncSetting as Setting } from "./LiveSyncSetting.ts";
 import type { ObsidianLiveSyncSettingTab } from "./ObsidianLiveSyncSettingTab.ts";
 import type { PageFunctions } from "./SettingPane.ts";
 
 export function paneAdvanced(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement, { addPanel }: PageFunctions): void {
-    void addPanel(paneEl, $msg("Ui.Settings.Advanced.MemoryCache")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Advanced.MemoryCache").then((paneEl) => {
         new Setting(paneEl).autoWireNumeric("hashCacheMaxCount", { clampMin: 10 });
         // new Setting(paneEl).autoWireNumeric("hashCacheMaxAmount", { clampMin: 1 });
     });
-    void addPanel(paneEl, $msg("Ui.Settings.Advanced.LocalDatabaseTweak")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Advanced.LocalDatabaseTweak").then((paneEl) => {
         paneEl.addClass("wizardHidden");
 
         const items = ChunkAlgorithmNames;
@@ -19,7 +18,7 @@ export function paneAdvanced(this: ObsidianLiveSyncSettingTab, paneEl: HTMLEleme
         new Setting(paneEl).autoWireNumeric("customChunkSize", { clampMin: 0, acceptZero: true });
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Advanced.TransferTweak")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Advanced.TransferTweak").then((paneEl) => {
         new Setting(paneEl)
             .setClass("wizardHidden")
             .autoWireToggle("readChunksOnline", { onUpdate: this.onlyOnCouchDB });

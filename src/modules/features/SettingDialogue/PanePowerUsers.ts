@@ -31,7 +31,7 @@ export function panePowerUsers(
         });
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("useTimeouts", { onUpdate: this.onlyOnCouchDB });
     });
-    void addPanel(paneEl, $msg("Ui.Settings.PowerUsers.ConfigurationEncryption")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.PowerUsers.ConfigurationEncryption").then((paneEl) => {
         const passphrase_options: Record<ConfigPassphraseStore, string> = {
             "": $msg("Ui.Settings.PowerUsers.Default"),
             LOCALSTORAGE: $msg("Ui.Settings.PowerUsers.UseCustomPassphrase"),
@@ -39,7 +39,7 @@ export function panePowerUsers(
         };
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.PowerUsers.EncryptSensitiveConfig"))
+            .setName("Ui.Settings.PowerUsers.EncryptSensitiveConfig")
             .autoWireDropDown("configPassphraseStore", {
                 options: passphrase_options,
                 holdValue: true,
@@ -54,7 +54,7 @@ export function panePowerUsers(
             }));
         new Setting(paneEl).addApplyButton(["configPassphrase", "configPassphraseStore"]).setClass("wizardHidden");
     });
-    void addPanel(paneEl, $msg("Ui.Settings.PowerUsers.Developer")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.PowerUsers.Developer").then((paneEl) => {
         new Setting(paneEl).autoWireToggle("enableDebugTools").setClass("wizardHidden");
     });
 }

@@ -19,10 +19,10 @@ export function paneSetup(
     paneEl: HTMLElement,
     { addPanel, addPane }: PageFunctions
 ): void {
-    void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleQuickSetup")).then((paneEl) => {
+    void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleQuickSetup").then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("obsidianLiveSyncSettingTab.nameConnectSetupURI"))
-            .setDesc($msg("obsidianLiveSyncSettingTab.descConnectSetupURI"))
+            .setName("obsidianLiveSyncSettingTab.nameConnectSetupURI")
+            .setDesc("obsidianLiveSyncSettingTab.descConnectSetupURI")
             .addButton((text) => {
                 text.setButtonText($msg("obsidianLiveSyncSettingTab.btnUse")).onClick(() => {
                     this.closeSetting();
@@ -31,8 +31,8 @@ export function paneSetup(
             });
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Setup.RerunWizardName"))
-            .setDesc($msg("Ui.Settings.Setup.RerunWizardDesc"))
+            .setName("Ui.Settings.Setup.RerunWizardName")
+            .setDesc("Ui.Settings.Setup.RerunWizardDesc")
             .addButton((text) => {
                 text.setButtonText($msg("Ui.Settings.Setup.RerunWizardButton")).onClick(async () => {
                     const setupManager = this.core.getModule(SetupManager);
@@ -42,8 +42,8 @@ export function paneSetup(
             });
 
         new Setting(paneEl)
-            .setName($msg("obsidianLiveSyncSettingTab.nameEnableLiveSync"))
-            .setDesc($msg("obsidianLiveSyncSettingTab.descEnableLiveSync"))
+            .setName("obsidianLiveSyncSettingTab.nameEnableLiveSync")
+            .setDesc("obsidianLiveSyncSettingTab.descEnableLiveSync")
             .addOnUpdate(visibleOnly(() => !this.isConfiguredAs("isConfigured", true)))
             .addButton((text) => {
                 text.setButtonText($msg("obsidianLiveSyncSettingTab.btnEnable")).onClick(async () => {
@@ -61,8 +61,8 @@ export function paneSetup(
         visibleOnly(() => this.isConfiguredAs("isConfigured", true))
     ).then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("obsidianLiveSyncSettingTab.nameCopySetupURI"))
-            .setDesc($msg("obsidianLiveSyncSettingTab.descCopySetupURI"))
+            .setName("obsidianLiveSyncSettingTab.nameCopySetupURI")
+            .setDesc("obsidianLiveSyncSettingTab.descCopySetupURI")
             .addButton((text) => {
                 text.setButtonText($msg("obsidianLiveSyncSettingTab.btnCopy")).onClick(() => {
                     // await this.plugin.addOnSetup.command_copySetupURI();
@@ -70,8 +70,8 @@ export function paneSetup(
                 });
             });
         new Setting(paneEl)
-            .setName($msg("Setup.ShowQRCode"))
-            .setDesc($msg("Setup.ShowQRCode.Desc"))
+            .setName("Setup.ShowQRCode")
+            .setDesc("Setup.ShowQRCode.Desc")
             .addButton((text) => {
                 text.setButtonText($msg("Setup.ShowQRCode")).onClick(() => {
                     eventHub.emitEvent(EVENT_REQUEST_SHOW_SETUP_QR);
@@ -79,9 +79,9 @@ export function paneSetup(
             });
     });
 
-    void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleReset")).then((paneEl) => {
+    void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleReset").then((paneEl) => {
         new Setting(paneEl)
-            .setName($msg("obsidianLiveSyncSettingTab.nameDiscardSettings"))
+            .setName("obsidianLiveSyncSettingTab.nameDiscardSettings")
             .addButton((text) => {
                 text.setButtonText($msg("obsidianLiveSyncSettingTab.btnDiscard"))
                     .onClick(async () => {
@@ -105,7 +105,7 @@ export function paneSetup(
             .addOnUpdate(visibleOnly(() => this.isConfiguredAs("isConfigured", true)));
     });
 
-    void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleExtraFeatures")).then((paneEl) => {
+    void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleExtraFeatures").then((paneEl) => {
         new Setting(paneEl).autoWireToggle("useAdvancedMode");
 
         new Setting(paneEl).autoWireToggle("usePowerUserMode");
@@ -116,7 +116,7 @@ export function paneSetup(
         this.addOnSaved("useEdgeCaseMode", () => this.display());
     });
 
-    void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleOnlineTips")).then((paneEl) => {
+    void addPanel(paneEl, "obsidianLiveSyncSettingTab.titleOnlineTips").then((paneEl) => {
         // this.createEl(paneEl, "h3", { text: $msg("obsidianLiveSyncSettingTab.titleOnlineTips") });
         const repo = "vrtmrz/obsidian-livesync";
         const topPath = $msg("obsidianLiveSyncSettingTab.linkTroubleshooting");

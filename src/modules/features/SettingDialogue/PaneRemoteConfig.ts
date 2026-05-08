@@ -115,7 +115,7 @@ export function paneRemoteConfig(
         };
         void addPanel(paneEl, $msg("Ui.Settings.Remote.E2EEConfiguration"), () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, E2EESummaryWritable);
-            const setupButton = new Setting(paneEl).setName($msg("Ui.Settings.Remote.ConfigureE2EE"));
+            const setupButton = new Setting(paneEl).setName("Ui.Settings.Remote.ConfigureE2EE");
             setupButton
                 .addButton((button) =>
                     button
@@ -145,7 +145,7 @@ export function paneRemoteConfig(
     {
         // TODO: very WIP. need to refactor the UI.
         void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleRemoteServer"), () => {}).then((paneEl) => {
-            const actions = new Setting(paneEl).setName($msg("Ui.Settings.Remote.RemoteDatabases"));
+            const actions = new Setting(paneEl).setName("Ui.Settings.Remote.RemoteDatabases");
             // actions.addButton((button) =>
             //     button
             //         .setButtonText("Change Remote and Setup")
@@ -539,7 +539,7 @@ export function paneRemoteConfig(
         };
         void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleCouchDB"), () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, summaryWritable);
-            const setupButton = new Setting(paneEl).setName($msg("Ui.Settings.Remote.ConfigureRemote"));
+            const setupButton = new Setting(paneEl).setName("Ui.Settings.Remote.ConfigureRemote");
             setupButton
                 .addButton((button) =>
                     button
@@ -575,7 +575,7 @@ export function paneRemoteConfig(
         };
         void addPanel(paneEl, $msg("obsidianLiveSyncSettingTab.titleMinioS3R2"), () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, summaryWritable);
-            const setupButton = new Setting(paneEl).setName($msg("Ui.Settings.Remote.ConfigureRemote"));
+            const setupButton = new Setting(paneEl).setName("Ui.Settings.Remote.ConfigureRemote");
             setupButton
                 .addButton((button) =>
                     button
@@ -616,7 +616,7 @@ export function paneRemoteConfig(
         };
         void addPanel(paneEl, $msg("Ui.Settings.Remote.PeerToPeerPanel"), () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, summaryWritable);
-            const setupButton = new Setting(paneEl).setName($msg("Ui.Settings.Remote.ConfigureRemote"));
+            const setupButton = new Setting(paneEl).setName("Ui.Settings.Remote.ConfigureRemote");
             setupButton
                 .addButton((button) =>
                     button

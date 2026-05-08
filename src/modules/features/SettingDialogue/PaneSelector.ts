@@ -8,12 +8,12 @@ import type { ObsidianLiveSyncSettingTab } from "./ObsidianLiveSyncSettingTab.ts
 import type { PageFunctions } from "./SettingPane.ts";
 import { visibleOnly } from "./SettingPane.ts";
 export function paneSelector(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement, { addPanel }: PageFunctions): void {
-    void addPanel(paneEl, $msg("Ui.Settings.Selector.NormalFiles")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Selector.NormalFiles").then((paneEl) => {
         paneEl.addClass("wizardHidden");
 
         const syncFilesSetting = new Setting(paneEl)
-            .setName($msg("Ui.Settings.Selector.SynchronisingFiles"))
-            .setDesc($msg("Ui.Settings.Selector.SynchronisingFilesDesc"))
+            .setName("Ui.Settings.Selector.SynchronisingFiles")
+            .setDesc("Ui.Settings.Selector.SynchronisingFilesDesc")
             .setClass("wizardHidden");
         mount(MultipleRegExpControl, {
             target: syncFilesSetting.controlEl,
@@ -29,8 +29,8 @@ export function paneSelector(this: ObsidianLiveSyncSettingTab, paneEl: HTMLEleme
         });
 
         const nonSyncFilesSetting = new Setting(paneEl)
-            .setName($msg("Ui.Settings.Selector.NonSynchronisingFiles"))
-            .setDesc($msg("Ui.Settings.Selector.NonSynchronisingFilesDesc"))
+            .setName("Ui.Settings.Selector.NonSynchronisingFiles")
+            .setDesc("Ui.Settings.Selector.NonSynchronisingFilesDesc")
             .setClass("wizardHidden");
 
         mount(MultipleRegExpControl, {
@@ -54,9 +54,9 @@ export function paneSelector(this: ObsidianLiveSyncSettingTab, paneEl: HTMLEleme
     });
     void addPanel(paneEl, $msg("Ui.Settings.Selector.HiddenFiles"), undefined, undefined, LEVEL_ADVANCED).then((paneEl) => {
         const targetPatternSetting = new Setting(paneEl)
-            .setName($msg("Ui.Settings.Selector.TargetPatterns"))
+            .setName("Ui.Settings.Selector.TargetPatterns")
             .setClass("wizardHidden")
-            .setDesc($msg("Ui.Settings.Selector.TargetPatternsDesc"));
+            .setDesc("Ui.Settings.Selector.TargetPatternsDesc");
         const patTarget = splitCustomRegExpList(this.editingSettings.syncInternalFilesTargetPatterns, ",");
         mount(MultipleRegExpControl, {
             target: targetPatternSetting.controlEl,
@@ -77,7 +77,7 @@ export function paneSelector(this: ObsidianLiveSyncSettingTab, paneEl: HTMLEleme
 
         const pat = splitCustomRegExpList(this.editingSettings.syncInternalFilesIgnorePatterns, ",");
         const patSetting = new Setting(paneEl)
-            .setName($msg("Ui.Settings.Selector.IgnorePatterns"))
+            .setName("Ui.Settings.Selector.IgnorePatterns")
             .setClass("wizardHidden")
             .setDesc("");
 
@@ -107,7 +107,7 @@ export function paneSelector(this: ObsidianLiveSyncSettingTab, paneEl: HTMLEleme
         };
 
         new Setting(paneEl)
-            .setName($msg("Ui.Settings.Selector.AddDefaultPatterns"))
+            .setName("Ui.Settings.Selector.AddDefaultPatterns")
             .setClass("wizardHidden")
             .addButton((button) => {
                 button.setButtonText($msg("Ui.Settings.Selector.Default")).onClick(async () => {
@@ -121,9 +121,9 @@ export function paneSelector(this: ObsidianLiveSyncSettingTab, paneEl: HTMLEleme
             });
 
         const overwritePatterns = new Setting(paneEl)
-            .setName($msg("Ui.Settings.Selector.OverwritePatterns"))
+            .setName("Ui.Settings.Selector.OverwritePatterns")
             .setClass("wizardHidden")
-            .setDesc($msg("Ui.Settings.Selector.OverwritePatternsDesc"));
+            .setDesc("Ui.Settings.Selector.OverwritePatternsDesc");
         const patTarget2 = splitCustomRegExpList(this.editingSettings.syncInternalFileOverwritePatterns, ",");
         mount(MultipleRegExpControl, {
             target: overwritePatterns.controlEl,

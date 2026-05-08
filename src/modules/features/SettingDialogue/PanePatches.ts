@@ -16,7 +16,7 @@ import { ExtraSuffixIndexedDB } from "../../../lib/src/common/types.ts";
 import { migrateDatabases } from "./settingUtils.ts";
 
 export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement, { addPanel }: PageFunctions): void {
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.CompatibilityMetadata")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.CompatibilityMetadata").then((paneEl) => {
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("deleteMetadataOfDeletedFiles");
 
         new Setting(paneEl).setClass("wizardHidden").autoWireNumeric("automaticallyDeleteMetadataOfDeletedFiles", {
@@ -24,13 +24,13 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         });
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.CompatibilityConflict")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.CompatibilityConflict").then((paneEl) => {
         paneEl.addClass("wizardHidden");
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("disableMarkdownAutoMerge");
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("writeDocumentsIfConflicted");
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.CompatibilityDatabase")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.CompatibilityDatabase").then((paneEl) => {
         const migrateAllToIndexedDB = async () => {
             const dbToName = this.core.localDatabase.dbname + SuffixDatabaseName + ExtraSuffixIndexedDB;
             const options = {
@@ -85,8 +85,8 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
             });
             addSignalWord(migrationWarning, "notice");
             const setting = new Setting(paneEl)
-                .setName($msg("Ui.Settings.Patches.DatabaseAdapter"))
-                .setDesc($msg("Ui.Settings.Patches.DatabaseAdapterDesc"));
+                .setName("Ui.Settings.Patches.DatabaseAdapter")
+                .setDesc("Ui.Settings.Patches.DatabaseAdapterDesc");
             const el = setting.controlEl.createDiv({});
             el.setText(
                 $msg("Ui.Settings.Patches.CurrentAdapter", {
@@ -114,10 +114,10 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         new Setting(paneEl).autoWireToggle("handleFilenameCaseSensitive", { holdValue: true }).setClass("wizardHidden");
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.CompatibilityInternalApi")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.CompatibilityInternalApi").then((paneEl) => {
         new Setting(paneEl).autoWireToggle("watchInternalFileChanges", { invert: true });
     });
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.CompatibilityRemote")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.CompatibilityRemote").then((paneEl) => {
         new Setting(paneEl).autoWireDropDown("E2EEAlgorithm", {
             options: E2EEAlgorithmNames,
         });
@@ -131,7 +131,7 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         ),
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.EdgeCaseDatabase")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.EdgeCaseDatabase").then((paneEl) => {
         new Setting(paneEl)
             .autoWireText("additionalSuffixOfDatabaseName", { holdValue: true })
             .addApplyButton(["additionalSuffixOfDatabaseName"]);
@@ -154,13 +154,13 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
             await this.core.localDatabase._prepareHashFunctions();
         });
     });
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.EdgeCaseBehaviour")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.EdgeCaseBehaviour").then((paneEl) => {
         new Setting(paneEl).autoWireToggle("doNotSuspendOnFetching");
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("doNotDeleteFolder");
         new Setting(paneEl).autoWireToggle("processSizeMismatchedFiles");
     });
 
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.EdgeCaseProcessing")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.EdgeCaseProcessing").then((paneEl) => {
         new Setting(paneEl).autoWireToggle("disableWorkerForGeneratingChunks");
 
         new Setting(paneEl).autoWireToggle("processSmallFilesInUIThread", {
@@ -170,10 +170,10 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
     // void addPanel(paneEl, "Edge case addressing (Networking)").then((paneEl) => {
     // new Setting(paneEl).autoWireToggle("useRequestAPI");
     // });
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.CompatibilityTrouble")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.CompatibilityTrouble").then((paneEl) => {
         new Setting(paneEl).autoWireToggle("disableCheckingConfigMismatch");
     });
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.Remediation")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.Remediation").then((paneEl) => {
         let dateEl: HTMLSpanElement;
         new Setting(paneEl)
             .addText((text) => {
@@ -235,7 +235,7 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
             }
         });
     });
-    void addPanel(paneEl, $msg("Ui.Settings.Patches.RemoteDatabaseSunset")).then((paneEl) => {
+    void addPanel(paneEl, "Ui.Settings.Patches.RemoteDatabaseSunset").then((paneEl) => {
         // new Setting(paneEl).autoWireToggle("useEden").setClass("wizardHidden");
         // const onlyUsingEden = visibleOnly(() => this.isConfiguredAs("useEden", true));
         // new Setting(paneEl).autoWireNumeric("maxChunksInEden", { onUpdate: onlyUsingEden }).setClass("wizardHidden");
