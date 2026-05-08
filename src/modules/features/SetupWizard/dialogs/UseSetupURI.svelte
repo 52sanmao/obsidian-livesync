@@ -56,14 +56,10 @@
     }
 </script>
 
-<DialogHeader title="Enter Setup URI" />
-<Guidance
-    >Please enter the Setup URI that was generated during server installation or on another device, along with the vault
-    passphrase.<br />
-    Note that you can generate a new Setup URI by running the "Copy settings as a new Setup URI" command in the command palette.</Guidance
->
+<DialogHeader title="Setup.UseSetupURI.Title" />
+<Guidance message="Setup.UseSetupURI.Guidance" />
 
-<InputRow label="Setup-URI">
+<InputRow label="Setup.UseSetupURI.Label">
     <input
         type="text"
         placeholder="obsidian://setuplivesync?settings=...."
@@ -74,7 +70,7 @@
         required
     />
 </InputRow>
-<InfoNote visible={seemsValid}>The Setup-URI is valid and ready to use.</InfoNote>
+<InfoNote visible={seemsValid} message="Setup.UseSetupURI.ValidMessage" />
 <InfoNote warning visible={!seemsValid && setupURI.trim() != ""}>
     The Setup-URI does not appear to be valid. Please check that you have copied it correctly.
 </InfoNote>
@@ -87,10 +83,10 @@
 
 <UserDecisions>
     <Decision
-        title="Test Settings and Continue"
+        title="Setup.UseSetupURI.ButtonProceed"
         important={true}
         disabled={!canProceed}
         commit={() => processSetupURI()}
     />
-    <Decision title="Cancel" commit={() => setResult(TYPE_CANCELLED)} />
+    <Decision title="Setup.UseSetupURI.ButtonCancel" commit={() => setResult(TYPE_CANCELLED)} />
 </UserDecisions>

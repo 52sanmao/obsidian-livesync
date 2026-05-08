@@ -136,7 +136,7 @@
 </script>
 
 <DialogHeader title="CouchDB Configuration" />
-<Guidance>Please enter the CouchDB server information below.</Guidance>
+<Guidance message="Setup.CouchDB.Guidance" />
 <InputRow label="URL">
     <input
         type="text"
@@ -282,8 +282,8 @@
     Checking connection... Please wait.
 {:else}
     <UserDecisions>
-        <Decision title="Test Settings and Continue" important disabled={!canProceed} commit={() => checkAndCommit()} />
+        <Decision title="Setup.UseSetupURI.ButtonProceed" important disabled={!canProceed} commit={() => checkAndCommit()} />
         <Decision title="Continue anyway" commit={() => commit()} />
-        <Decision title="Cancel" commit={() => cancel()} />
+        <Decision title="Setup.UseSetupURI.ButtonCancel" commit={() => cancel()} />
     </UserDecisions>
 {/if}

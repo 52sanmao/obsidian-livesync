@@ -193,7 +193,7 @@
 </script>
 
 <DialogHeader title="P2P Configuration" />
-<Guidance>Please enter the Peer-to-Peer Synchronisation information below.</Guidance>
+<Guidance message="Setup.P2P.Guidance" />
 <InputRow label="Enabled">
     <input type="checkbox" name="p2p-enabled" bind:checked={syncSetting.P2P_Enabled} />
 </InputRow>
@@ -301,8 +301,8 @@
     Checking connection... Please wait.
 {:else}
     <UserDecisions>
-        <Decision title="Test Settings and Continue" important disabled={!canProceed} commit={() => checkAndCommit()} />
+        <Decision title="Setup.UseSetupURI.ButtonProceed" important disabled={!canProceed} commit={() => checkAndCommit()} />
         <Decision title="Continue anyway" commit={() => commit()} />
-        <Decision title="Cancel" commit={() => cancel()} />
+        <Decision title="Setup.UseSetupURI.ButtonCancel" commit={() => cancel()} />
     </UserDecisions>
 {/if}

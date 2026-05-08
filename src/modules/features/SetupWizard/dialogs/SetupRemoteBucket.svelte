@@ -124,7 +124,7 @@
 </script>
 
 <DialogHeader title="S3/MinIO/R2 Configuration" />
-<Guidance>Please enter the details required to connect to your S3/MinIO/R2 compatible object storage service.</Guidance>
+<Guidance message="Setup.Bucket.Guidance" />
 <InputRow label="Endpoint URL">
     <input
         type="text"
@@ -233,8 +233,8 @@
     Checking connection... Please wait.
 {:else}
     <UserDecisions>
-        <Decision title="Test Settings and Continue" important disabled={!canProceed} commit={() => checkAndCommit()} />
+        <Decision title="Setup.UseSetupURI.ButtonProceed" important disabled={!canProceed} commit={() => checkAndCommit()} />
         <Decision title="Continue anyway" commit={() => commit()} />
-        <Decision title="Cancel" commit={() => cancel()} />
+        <Decision title="Setup.UseSetupURI.ButtonCancel" commit={() => cancel()} />
     </UserDecisions>
 {/if}

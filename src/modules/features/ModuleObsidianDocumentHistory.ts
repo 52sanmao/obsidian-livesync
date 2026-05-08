@@ -1,11 +1,12 @@
 import { type TFile } from "@/deps.ts";
 import { eventHub } from "../../common/events.ts";
 import { EVENT_REQUEST_SHOW_HISTORY } from "../../common/obsidianEvents.ts";
+import { $msg } from "../../lib/src/common/i18n.ts";
 import type { FilePathWithPrefix, LoadedEntry, DocumentID } from "../../lib/src/common/types.ts";
 import { AbstractObsidianModule } from "../AbstractObsidianModule.ts";
 import { DocumentHistoryModal } from "./DocumentHistory/DocumentHistoryModal.ts";
 import { fireAndForget } from "octagonal-wheels/promises";
-import { $msg } from "../../lib/src/common/i18n.ts";
+
 
 export class ModuleObsidianDocumentHistory extends AbstractObsidianModule {
     _everyOnloadStart(): Promise<boolean> {

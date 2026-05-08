@@ -47,9 +47,9 @@
     }
 </script>
 
-<DialogHeader title="End-to-End Encryption" />
-<Guidance>Please configure your end-to-end encryption settings.</Guidance>
-<InputRow label="End-to-End Encryption">
+<DialogHeader title="Setup.RemoteE2EE.Title" />
+<Guidance message="Setup.RemoteE2EE.Guidance" />
+<InputRow label="Setup.RemoteE2EE.LabelEncryption">
     <input type="checkbox" bind:checked={encryptionSettings.encrypt} />
     <Password
         name="e2ee-passphrase"
@@ -59,33 +59,18 @@
         required={encryptionSettings.encrypt}
     />
 </InputRow>
-<InfoNote title="Strongly Recommended">
-    Enabling end-to-end encryption ensures that your data is encrypted on your device before being sent to the remote
-    server. This means that even if someone gains access to the server, they won't be able to read your data without the
-    passphrase. Make sure to remember your passphrase, as it will be required to decrypt your data on other devices.
-    <br />
-    Also, please note that if you are using Peer-to-Peer synchronization, this configuration will be used when you switch
-    to other methods and connect to a remote server in the future.
-</InfoNote>
-<InfoNote warning>
-    This setting must be the same even when connecting to multiple synchronisation destinations.
-</InfoNote>
-<InputRow label="Obfuscate Properties">
+<InfoNote title="Setup.RemoteE2EE.StronglyRecommendedTitle" message="Setup.RemoteE2EE.StronglyRecommended" />
+<InfoNote warning message="Setup.RemoteE2EE.WarningSameSetting" />
+<InputRow label="Setup.RemoteE2EE.LabelObfuscate">
     <input
         type="checkbox"
         bind:checked={encryptionSettings.usePathObfuscation}
         disabled={!encryptionSettings.encrypt}
     />
 </InputRow>
+<InfoNote message="Setup.RemoteE2EE.ObfuscateExplanation" />
 
-<InfoNote>
-    Obfuscating properties (e.g., path of file, size, creation and modification dates) adds an additional layer of
-    security by making it harder to identify the structure and names of your files and folders on the remote server.
-    This helps protect your privacy and makes it more difficult for unauthorized users to infer information about your
-    data.
-</InfoNote>
-
-<ExtraItems title="Advanced">
+<ExtraItems title="Setup.RemoteE2EE.AdvancedTitle">
     <InputRow label="Encryption Algorithm">
         <select bind:value={encryptionSettings.E2EEAlgorithm} disabled={!encryptionSettings.encrypt}>
             {#each Object.values(E2EEAlgorithms) as alg}
@@ -105,19 +90,9 @@
     </InfoNote>
 </ExtraItems>
 
-<InfoNote warning>
-    <p>
-        Please be aware that the End-to-End Encryption passphrase is not validated until the synchronisation process
-        actually commences. This is a security measure designed to protect your data.
-    </p>
-    <p>
-        Therefore, we ask that you exercise extreme caution when configuring server information manually. If an
-        incorrect passphrase is entered, the data on the server will become corrupted. <br /><br />
-        Please understand that this is intended behaviour.
-    </p>
-</InfoNote>
+<InfoNote warning message="Setup.RemoteE2EE.ManualWarning" />
 
 <UserDecisions>
-    <Decision title="Proceed" important disabled={!e2eeValid} commit={() => commit()} />
-    <Decision title="Cancel" commit={() => setResult(TYPE_CANCELLED)} />
+    <Decision title="Setup.RemoteE2EE.ButtonProceed" important disabled={!e2eeValid} commit={() => commit()} />
+    <Decision title="Setup.UseSetupURI.ButtonCancel" commit={() => setResult(TYPE_CANCELLED)} />
 </UserDecisions>

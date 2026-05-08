@@ -37,7 +37,7 @@
 <Instruction>
     <Question>{msg("Ui.SetupWizard.SetupRemote.Guidance")}</Question>
     <Options>
-        <Option selectedValue={TYPE_COUCHDB} title="CouchDB" bind:value={userType}>
+        <Option selectedValue={TYPE_COUCHDB} title="obsidianLiveSyncSettingTab.titleCouchDB" bind:value={userType}>
             {msg("Ui.SetupWizard.SetupRemote.CouchDbOptionDesc")}
         </Option>
         <Option selectedValue={TYPE_BUCKET} title={msg("Ui.SetupWizard.SetupRemote.BucketOption")} bind:value={userType}>

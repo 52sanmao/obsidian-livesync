@@ -9,13 +9,14 @@ import {
     type FilePathWithPrefix,
     type diff_result,
 } from "../../lib/src/common/types.ts";
+import { $msg } from "../../lib/src/common/i18n.ts";
 import { ConflictResolveModal } from "./InteractiveConflictResolving/ConflictResolveModal.ts";
 import { AbstractObsidianModule } from "../AbstractObsidianModule.ts";
 import { displayRev } from "../../common/utils.ts";
 import { fireAndForget } from "octagonal-wheels/promises";
 import { serialized } from "octagonal-wheels/concurrency/lock";
 import type { LiveSyncCore } from "../../main.ts";
-import { $msg } from "../../lib/src/common/i18n.ts";
+
 
 export class ModuleInteractiveConflictResolver extends AbstractObsidianModule {
     _everyOnloadStart(): Promise<boolean> {

@@ -12,17 +12,9 @@
     const { setResult }: Props = $props();
 </script>
 
-<DialogHeader title="Scan QR Code" />
-<Guidance>Please follow the steps below to import settings from your existing device.</Guidance>
-<Instruction>
-    <!-- <Question>How would you like to configure the connection to your server?</Question> -->
-    <ol>
-        <li>On this device, please keep this Vault open.</li>
-        <li>On the source device, open Obsidian.</li>
-        <li>On the source device, from the command palette, run the 'Show settings as a QR code' command.</li>
-        <li>On this device, switch to the camera app or use a QR code scanner to scan the displayed QR code.</li>
-    </ol>
-</Instruction>
+<DialogHeader title="Setup.ScanQRCode.Title" />
+<Guidance message="Setup.ScanQRCode.Guidance" />
+<Instruction message="Setup.ScanQRCode.Instruction" />
 <UserDecisions>
-    <Decision title="Close this dialog" important={true} commit={() => setResult(TYPE_CLOSE)} />
+    <Decision title="Setup.ScanQRCode.ButtonClose" important={true} commit={() => setResult(TYPE_CLOSE)} />
 </UserDecisions>

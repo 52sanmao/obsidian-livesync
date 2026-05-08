@@ -144,11 +144,11 @@
     </Options>
 </Instruction>
 <Instruction>
-    <ExtraItems title="Advanced">
+    <ExtraItems title="Setup.RemoteE2EE.AdvancedTitle">
         <Check title="Prevent fetching configuration from server" bind:value={preventFetchingConfig} />
     </ExtraItems>
 </Instruction>
 <UserDecisions>
     <Decision title="Reset and Resume Synchronisation" important disabled={!canProceed} commit={() => commit()} />
-    <Decision title="Cancel" commit={() => setResult(TYPE_CANCEL)} />
+    <Decision title="Setup.UseSetupURI.ButtonCancel" commit={() => setResult(TYPE_CANCEL)} />
 </UserDecisions>
